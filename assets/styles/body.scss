@@ -1,13 +1,26 @@
-@import '~assets/images/trippy.png';
-
-.container-fluid {
-  background-repeat: no-repeat;
-  background-size: cover;
-  max-height: 800px;
+body {
+  background-color: $yellow;
+  height: 100%;
+  max-width: 920px;
   width: 100%;
 }
 
-.back-drop {
-  height: 800px;
+.backdrop {
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 50px auto;
+  min-height: 500px;
+}
+
+.overlay {
+  background-color: $faded-purple;
+  height: 100%;
+  min-height: 500px;
+  min-width: 500px;
   width: 100%;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
 }
