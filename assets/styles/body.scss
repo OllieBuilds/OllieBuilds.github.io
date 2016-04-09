@@ -54,7 +54,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   margin: 75px auto;
-  min-height: 500px;
+  height: 700px;
   padding: 0;
 }
 
@@ -63,7 +63,7 @@ body {
   background-color: $faded-purple;
   border: 5px solid $purple;
   color: $white;
-  height: 100%;
+  // height: 100%;
   margin-top: -20px;
   min-height: 500px;
   min-width: 500px;
@@ -101,7 +101,6 @@ body {
 }
 
 .nav {
-  background-color: $faded-purple;
   color: $white;
   position: absolute;
   top: 10px;
@@ -109,6 +108,41 @@ body {
   li {
     @include border-radius(10px);
     @include inline;
+    background-color: $faded-purple;
+    margin-top: 1em;
+    padding: 2em;
     border: 2px solid $white;
+
+    &:hover {
+      background-color: $blue;
+      color: $yellow;
+    }
   }
+}
+
+.gameboard {
+  // position: relative;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  margin: 10% auto ;
+  .top-row, .center-row, .bottom-row {
+    // float: left;
+    width: 100%;
+    border: 2px solid black;
+    margin: 5% auto 0;
+    min-width: 500px;
+    height: 100%
+
+    div {
+      float:left;
+      border: 2px solid red;
+      margin:0;
+      width: 100%;
+      min-width: 500px;
+      height: 20%;
+      color: $white;
+    }
+  }
+
 }
