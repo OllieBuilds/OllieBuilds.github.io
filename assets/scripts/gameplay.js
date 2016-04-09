@@ -19,57 +19,77 @@ let oArray = ["", "", "", "", "", "", "", "", ""];
 // announceWinner
 
 const announceWinner = function (){
-  console.log("wins!");
-  if(currentPlayer === "Player One"){
+  console.log("annouce wins!");
+  if(numTurn % 2 === 0){
     playerXwins++;
-    console.log(currentPlayer + " wins!");
-  } else {
-    playerOwins++;
-    console.log(currentPlayer + " wins!");
+    return playerXwins;
+  }else {
+    return playerOwins++;
   }
 };
 
 // Game Logic
+
+const winCases = function(array){
+  console.log('win cases running');
+  for (let i = 0; i < array.length; i++){
+  // global --> top row 0
+if (array[0] !== ''){
+  // top row: horizontal
+  if(array[0] === array[1] === array[2]){
+announceWinner();
+  }
+  // top row: vertical
+  else if(array[0] === array[3] === array[6]){
+    return announceWinner();
+  }
+  // top left diagonal
+  else if(array[0] === array[4] === array[8]){
+    return announceWinner();
+  }
+  //global --> 1
+}else if(array[1] !== ''){
+  // center column vertical
+  if(array[1] === array[4] === array[7]){
+    return announceWinner();
+  }
+  // global --> 2
+}else if(array[2] !== ''){
+  // right column vertical
+  if(array[2] === array[5] === array[8]){
+    return announceWinner();
+  }
+  // right corner diagonal
+  if(array[2] === array[4] === array[6]){
+    return announceWinner();
+  }
+  // global --> 3
+}else if(array[3] !== ''){
+  // middle row horizontal
+  if(array[3] === array[4] === array[5]){
+    return announceWinner();
+  }
+  // global --> 6
+}else if(array[6] !== ''){
+  // bottom row horizontal
+  if(array[6] === array[7] === array[8]){
+    return announceWinner();
+  }
+  // global
+  }
+ }  // end function
+ console.log('ran winCases');
+};
+
 const defined = function (array, identify){
     let indexValue = identify.charAt(6);
     array[+indexValue] = currentPlayer;
     console.log(array);
+    let newArray = array;
+    console.log(newArray);
+    winCases(newArray);
 };
 
-const winCases = function(array, id){
-  console.log('win cases running');
-  // for(let i = 0; i < array.length; i++){
-  //   if(isPresent(array)){
-  //     console.log(currentPlayer);
-  //     return announceWinner(currentPlayer);
-  //     }
-  //   }
-  defined(array, id);
-  };
-
-// const winCases = function () {
-//   console.log($('#square0').text() + $('#square1').text());
-//   for (let i = 0; i <= winCases.length; i++){
-//   if (($('#square0').text() === $('#square1').text === $('#square2').text() )){
-//     return announceWinner();
-//   } else if ($('#square0').text() !== "" && ($('#square0').text() === $('#square3').text === $('#square6').text() )){
-//     return announceWinner();
-//   } else if ($('#square0').text() !== "" && ($('#square0').text() === $('#square4').text === $('#square8').text() )){
-//     return announceWinner();
-//   } else if ($('#square1').text() !== "" && ($('#square1').text() === $('#square4').text === $('#square7').text() )){
-//     return announceWinner();
-//   } else if ($('#square2').text() !== "" && ($('#square2').text() === $('#square5').text === $('#square8').text() )){
-//     return announceWinner();
-//   } else if ($('#square2').text() !== "" && ($('#square2').text() === $('#square4').text === $('#square6').text() )){
-//     return announceWinner();
-//   } else if ($('#square3').text() !== "" && ($('#square3').text() === $('#square4').text === $('#square5').text() )){
-//     return announceWinner();
-//   } else if ($('#square6').text() !== "" && ($('#square6').text() === $('#square7').text === $('#square8').text() )){
-//     return announceWinner();
-//   }
-//   console.log('ran through logic');
-// }
-// };
 
 // Player move function
 $('.square').on('click', function(){
@@ -81,7 +101,7 @@ $('.square').on('click', function(){
     numTurn++;
     currentPlayer = 'X';
     console.log(xArray);
-    winCases(xArray, id);
+    defined(xArray, id);
   }else{
     $(this).text('O');
     let id = $(this).attr('id');
@@ -89,12 +109,15 @@ $('.square').on('click', function(){
     // console.log(gameArray);
     numTurn++;
     currentPlayer = 'O';
-    winCases(oArray, id);
+    defined(oArray, id);
   }
 });
 
 module.exports = {
   announceWinner,
   winCases,
+  defined,
+  playerOwins,
+  playerXwins
 
 };
