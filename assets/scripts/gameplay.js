@@ -5,14 +5,14 @@
 // const ui = require('./auth/ui');
 //
 
-let xArray = [];
-let oArray = [];
+let xArray = ["", "", "", "", "", "", "", "", ""];
+let oArray = ["", "", "", "", "", "", "", "", ""];
 
 // win counters
   let playerXwins = 0;
   let playerOwins = 0;
   let numTurn = 0;
-
+  let currentPlayer;
 
 
 
@@ -20,23 +20,32 @@ let oArray = [];
 
 const announceWinner = function (){
   console.log("wins!");
-  if(numTurn % 2 === 0){
+  if(currentPlayer === "Player One"){
     playerXwins++;
-    return playerXwins;
+    console.log(currentPlayer + " wins!");
   } else {
     playerOwins++;
-    console.log(playerOwins);
+    console.log(currentPlayer + " wins!");
   }
 };
 
 // Game Logic
-const winCases = function(array){
-  console.log('win cases running');
-  for(let i = 0; i < array.length; i++){
-
-  }
-
+const defined = function (array, identify){
+    let indexValue = identify.charAt(6);
+    array[+indexValue] = currentPlayer;
+    console.log(array);
 };
+
+const winCases = function(array, id){
+  console.log('win cases running');
+  // for(let i = 0; i < array.length; i++){
+  //   if(isPresent(array)){
+  //     console.log(currentPlayer);
+  //     return announceWinner(currentPlayer);
+  //     }
+  //   }
+  defined(array, id);
+  };
 
 // const winCases = function () {
 //   console.log($('#square0').text() + $('#square1').text());
@@ -67,17 +76,20 @@ $('.square').on('click', function(){
   if(numTurn % 2 === 0){
     $(this).text('X');
     let id = $(this).attr('id');
-    xArray.push(id);
+    // xArray.push(id);
     // console.log(gameArray);
     numTurn++;
-    winCases(xArray);
+    currentPlayer = 'X';
+    console.log(xArray);
+    winCases(xArray, id);
   }else{
     $(this).text('O');
     let id = $(this).attr('id');
-    oArray.push(id);
+    // oArray.push(id);
     // console.log(gameArray);
     numTurn++;
-    winCases(oArray);
+    currentPlayer = 'O';
+    winCases(oArray, id);
   }
 });
 
