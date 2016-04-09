@@ -1,6 +1,7 @@
 'use strict';
 
 $('#trip').on('click', function() {
-  $('.size-alert').addClass('hidden');
+  $('#land').addClass('hidden');
     console.log('test');
+  $('#register').removeClass('hidden');  
 });

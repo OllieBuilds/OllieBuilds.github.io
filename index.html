@@ -9,11 +9,30 @@
     <body class="container-fluid" >
       <div class="backdrop" style="background-image: url('assets/images/trippy.png')">
       <div class="overlay" >
+<!-- Landing pad -->
         <div class="size-alert center">
-          <h1>warning</h1>
-          <p >experienced best on large screens</p>
-          <form class="intro center">
-            <input type="click" name="submit" id="trip" value="take a trip">
+          <div id="land">
+            <h1>warning</h1>
+            <p >experienced best on large screens</p>
+            <form class="intro center">
+              <input type="click" name="submit" id="trip" value="take a trip">
+            </form>
+          </div>
+        </div>
+  <!-- Register/Sign in -->
+        <div class="sign-in center hidden" id="register">
+          <!--register -->
+          <form class="register-log-in center">
+            <p>first time?</p>
+            <input type="email" name="email" placeholder="email">
+            <input type="password" name="password" placeholder="password">
+            <input type="password" name="confirm-password" placeholder="confirm password">
+          </form>
+          <!--log in -->
+          <form class="register-log-in center">
+            <p>been here before?</p>
+            <input type="email" name="email" placeholder="email">
+            <input type="password" name="password" placeholder="password">
           </form>
         </div>
       </div>
