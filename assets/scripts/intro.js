@@ -19,5 +19,5 @@ $('#new-game').on('click', function() {
   $('#choose').addClass('hidden');
   $('#overlay').addClass('hidden');
   $('#nav').removeClass('hidden');
-  $('#gameboard').removeClass('hidden');
+  $('#game-board').removeClass('hidden');
 });

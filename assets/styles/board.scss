@@ -1,0 +1,37 @@
+.gameboard {
+  background-color: $faded-purple;
+  height: 100%;
+  // max-height: 
+
+  .row{
+    // float: left;
+    width: 100%;
+    margin: 0 auto;
+    width: 50%;
+    height: 33.333%;
+
+    div {
+      @include inline;
+      border: 2px solid black;
+      height: 100%;
+      width: 33.333%;
+      margin: 0 auto;
+    }
+
+  }
+
+  .top-row {
+    // margin-top: 50%;;
+  }
+
+}
+
+.square {
+  @include inline;
+  height: 500px;
+  width: 500px;
+  background-color: $blue;
+  float: left;
+  padding-left: 3em;
+  margin: 0 auto;
+}
