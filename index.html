@@ -22,7 +22,7 @@
   <!-- Register/Sign in -->
         <div class="sign-in center hidden" id="register">
           <!--register -->
-          <form class="register-log-in center">
+          <form class="center">
             <p>first time?</p>
             <input type="email" name="email" placeholder="email">
             <input type="password" name="password" placeholder="password">
@@ -30,15 +30,35 @@
             <input type="click" name="submit" value="be easy" class="dark">
           </form>
           <!--log in -->
-          <form class="register-log-in center">
+          <form class="center">
             <p>been here before?</p>
             <input type="email" name="email" placeholder="email">
             <input type="password" name="password" placeholder="password">
-            <input type="click" name="submit" value="welcome home" class="dark">
+            <input type="click" name="submit" value="welcome home" class="dark" id="begin">
           </form>
         </div>
+<!-- End 'sign-in' -->
+        <div class="new-game hidden center" id="choose">
+          <span class="block">
+            <h1>two choices man</h1>
+          </span>
+          <form class="center" id="new-game">
+            <p>new game</p>
+            <input type="click" name="submit" value="new game">
+          </form>
+          <form class="center" id="change-pw">
+            <p>change password</p>
+            <input type="password" name="password" placeholder="old password">
+            <input type="password" name="password" placeholder="new password">
+            <input type="click" name="submit" value="we all need change">
+          </form>
+          <div id="pw-change-success" class="hidden center">
+            <h1>does it feel different?</h1>
+          </div>
+        </div>
+
       </div>
-<!-- end overlay DIV -->      
+<!-- end overlay DIV -->
     </div>
     </body>
 </html>

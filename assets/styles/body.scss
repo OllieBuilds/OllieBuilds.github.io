@@ -39,6 +39,10 @@ body {
   color: $dark;
 }
 
+.block {
+  display: block;
+}
+
 .size-alert {
   margin: 1.5em auto;
   text-align: center;
@@ -88,4 +92,10 @@ body {
   @include inline;
   text-align: center;
   width: 100%;
+}
+
+.new-game {
+  width: 100%;
+  text-align: center;
+  color: $blue;
 }
