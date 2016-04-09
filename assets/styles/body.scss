@@ -65,7 +65,7 @@ body {
   border: 5px solid $purple;
   color: $white;
   // height: 100%;
-  margin-top: -20px;
+  // margin-top: -20px;
   min-height: 500px;
   height: 100%;
   min-width: 500px;
@@ -112,7 +112,7 @@ body {
     @include inline;
     background-color: $faded-purple;
     margin-top: 1em;
-    padding: 2em;
+    padding: 2em 2em 1em 2em;
     border: 2px solid $white;
 
     &:hover {
