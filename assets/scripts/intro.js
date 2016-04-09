@@ -14,3 +14,8 @@ $('#begin').on('click', function() {
 $('#change-pw').on('click', function() {
   $('#pw-change-success').removeClass('hidden');
 });
+
+$('#new-game').on('click', function() {
+  $('#choose').addClass('hidden');
+  $('#overlay').addClass('hidden');
+});
