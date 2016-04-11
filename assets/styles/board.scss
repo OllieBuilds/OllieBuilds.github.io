@@ -1,0 +1,53 @@
+.gameboard {
+  background-color: $transparent;
+  border: none;
+  padding-top: 25%;
+
+  .row{
+    // float: left;
+    width: 100%;
+    margin: 0 auto;
+    width: 50%;
+    height: 20%;
+
+    div {
+      @include inline;
+      @include border-radius(10px);
+      border: 2px solid $yellow;
+      height: 100%;
+      width: 33.333%;
+      margin: 0 auto;
+      font-size: 1em;
+      text-align: left;
+      overflow: hidden;
+
+      &:hover {
+        background-color: $transparent;
+
+      h1 {
+        font-size: 3em;
+        text-align: left;
+      }
+      }
+    }
+
+  }
+
+  .top-row {
+    // margin-top: 50%;;
+    // margin-top: 200px;
+  }
+
+}
+
+.square {
+  @include inline;
+  height: 500px;
+  width: 500px;
+  background-color: $faded-purple;
+  float: left;
+  padding-left: 3em;
+  margin: 0 auto;
+  font-size: 20px;
+  font-weight: bolder;
+}

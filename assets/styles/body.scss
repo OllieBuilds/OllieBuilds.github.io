@@ -2,8 +2,14 @@
   border-radius: $radius;
 }
 
+@mixin inline {
+  display: inline;
+}
+
 body {
   background-color: $yellow;
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: "Cedarville Cursive", cursive;
   font-size: 16px;
   height: 100%;
@@ -31,6 +37,14 @@ body {
   margin: 0 auto;
 }
 
+.dark {
+  color: $dark;
+}
+
+.block {
+  display: block;
+}
+
 .size-alert {
   margin: 1.5em auto;
   text-align: center;
@@ -40,35 +54,73 @@ body {
 .backdrop {
   @include border-radius(10px);
   background-repeat: no-repeat;
-  background-size: contain;
-  margin: 75px auto;
-  min-height: 500px;
+  background-size: cover;
+  opacity: .9;
+  margin: 75px auto 0;
+  height: 700px;
   padding: 0;
+  // z-index: 1;
 }
 
 .overlay {
   @include border-radius(10px);
   background-color: $faded-purple;
   border: 5px solid $purple;
-  height: 100%;
-  margin-top: -20px;
+  color: $white;
+  // height: 100%;
+  // margin-top: -20px;
   min-height: 500px;
+  height: 100%;
   min-width: 500px;
   padding: 0;
   width: 100%;
 }
 
 .intro {
+  @include inline;
+
   input {
     @include border-radius(10px);
+    @include inline;
     background-color: $blue;
-    color: $white;
     font-size: 2.5em;
     text-align: center;
 
     &:hover {
       background-color: $yellow;
       color: $blue;
+    }
+  }
+}
+
+.sign-in {
+  @include inline;
+  text-align: center;
+  width: 100%;
+}
+
+.new-game {
+  color: $blue;
+  text-align: center;
+  width: 100%;
+}
+
+.nav {
+  color: $white;
+  position: absolute;
+  top: 10px;
+
+  li {
+    @include border-radius(10px);
+    @include inline;
+    background-color: $faded-purple;
+    margin-top: 1em;
+    padding: 2em 2em 1em 2em;
+    border: 2px solid $white;
+
+    &:hover {
+      background-color: $blue;
+      color: $yellow;
     }
   }
 }
