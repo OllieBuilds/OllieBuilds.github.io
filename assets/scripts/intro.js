@@ -1,5 +1,7 @@
 'use strict';
 
+const gameplay = require('./gameplay');
+
 $('#trip').on('click', function() {
   $('#land').addClass('hidden');
   $('#register').removeClass('hidden');
@@ -19,4 +21,10 @@ $('#new-game').on('click', function() {
   $('#overlay').addClass('hidden');
   $('#nav').removeClass('hidden');
   $('#game-board').removeClass('hidden');
+});
+
+$('#li-new-game').on('click', function() {
+  gameplay.xArray = [];
+  gameplay.oArray = [];
+  $('.square').text('');
 });
