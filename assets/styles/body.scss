@@ -55,9 +55,9 @@ body {
   @include border-radius(10px);
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: .9;
-  margin: 75px auto 0;
   height: 700px;
+  margin: 75px auto 0;
+  opacity: .9;
   padding: 0;
   // z-index: 1;
 }
@@ -67,10 +67,8 @@ body {
   background-color: $faded-purple;
   border: 5px solid $purple;
   color: $white;
-  // height: 100%;
-  // margin-top: -20px;
-  min-height: 500px;
   height: 100%;
+  min-height: 500px;
   min-width: 500px;
   padding: 0;
   width: 100%;
@@ -114,9 +112,10 @@ body {
     @include border-radius(10px);
     @include inline;
     background-color: $faded-purple;
-    margin-top: 1em;
-    padding: 2em 2em 1em 2em;
     border: 2px solid $white;
+    margin-top: 1em;
+    padding: 2em 2em 1em;
+
 
     &:hover {
       background-color: $blue;
