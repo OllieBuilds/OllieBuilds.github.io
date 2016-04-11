@@ -21,10 +21,12 @@ $('#new-game').on('click', function() {
   $('#overlay').addClass('hidden');
   $('#nav').removeClass('hidden');
   $('#game-board').removeClass('hidden');
+  $('.square').removeClass('unavailable');
 });
 
 $('#li-new-game').on('click', function() {
-  gameplay.xArray = [];
-  gameplay.oArray = [];
+  $('.square').removeClass('unavailable');
+  gameplay.xArray.length = 0;
+  gameplay.oArray.length = 0;
   $('.square').text('');
 });

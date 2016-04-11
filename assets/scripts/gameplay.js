@@ -21,9 +21,11 @@ const announceWinner = function (){
   console.log("announce wins!");
   if(numTurn % 2 === 0){
     playerXwins++;
+    $('.square').addClass('unavailable');
     return playerXwins;
   }else {
     playerOwins++;
+    $('.square').addClass('unavailable');
     return playerOwins++;
   }
 };
@@ -40,9 +42,9 @@ const announceWinner = function (){
 const winCases = function(array) {
   let mathWinner = 1;
   for(let i = 0; i <array.length; i++){
-    mathWinner *= array[i]+1;
+    mathWinner *= array[i]+5;
   console.log(mathWinner);
-  if(mathWinner === 6 || mathWinner === 28 || mathWinner === 45 || mathWinner === 80 || mathWinner === 162 || mathWinner === 105 || mathWinner === 120 || mathWinner === 504){
+  if(mathWinner === 210 || mathWinner === 440 || mathWinner === 585 || mathWinner === 648 || mathWinner === 910 || mathWinner === 693 || mathWinner === 720 || mathWinner === 1716){
     announceWinner();
   }
 }
@@ -80,6 +82,8 @@ module.exports = {
   winCases,
   // defined,
   playerOwins,
-  playerXwins
+  playerXwins,
+  xArray,
+  oArray,
 
 };
