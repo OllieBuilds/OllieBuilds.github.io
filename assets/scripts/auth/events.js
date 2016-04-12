@@ -5,7 +5,7 @@ const getFormFields = require('../../../lib/get-form-fields');
 const authApi = require('./api');
 const authUi = require('./ui');
 const gameplay = require('../gameplay');
-//
+
 // let playerOne;
 // let playerTwo;
 
@@ -15,6 +15,7 @@ const addHandlers = () => {
     let data = getFormFields(this);
     authApi.signUp(authUi.success, authUi.failure, data);
   });
+  
   $('#sign-in').on('submit', function (event){
     event.preventDefault();
   // two users

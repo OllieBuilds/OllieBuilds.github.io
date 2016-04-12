@@ -4,15 +4,18 @@ const app = require('../app-data');
 const gameplay = require('../gameplay');
 
 const signUp = (success, failure, data) => {
-Math.random();
-  Math.random() > 0.5 ? success('in signUp') : failure(data);
-  console.log(app);
-  // $.ajax({
-  //   method: 'POST',
-  //   url: app.api + 'sign-up',
-  //   data,
-  // }).done(success)
-  // .fail(failure);
+// Math.random() > 0.5 ? success('in signUp') : failure(data);
+  console.log(app.user1);
+  debugger;
+  $.ajax({
+    method: 'POST',
+    url: app.api + 'sign-up',
+    data,
+    headers: {
+      Authorization: 'Token token=' + app.user1.token,
+    },
+  }).done(success)
+  .fail(failure);
 };
 
 const signIn = (success, failure, data) => {
@@ -20,6 +23,9 @@ const signIn = (success, failure, data) => {
     method: 'POST',
     url: app.api + 'sign-in',
     data,
+    headers: {
+      Authorization: 'Token token=' + app.user1.token,
+    },
   }).done(success)
   .fail(failure);
 };
@@ -29,9 +35,6 @@ const changePassword = (success, failure, data) => {
     method: 'PATCH',
     url: app.api + 'change-password/' + app.user1.id,
     data,
-    headers: {
-      Authorization: 'Token token=' + app.user1.token,
-    },
   }).done(success)
   .fail(failure);
 };
@@ -69,7 +72,7 @@ const signOut = (success, failure) => {
 };
 
 const newGame = (success, failure) => {
-  console.log(app);
+  console.log('new game function');
   $.ajax({
     method: 'POST',
     url: app.api + 'games',

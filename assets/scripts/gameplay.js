@@ -53,8 +53,10 @@ const winCases = function(array) {
 
 // Player move function
 $('.square').on('click', function(){
+  console.log($(this));
   if(numTurn % 2 === 0){
     $(this).text('X');
+    $(this).addClass('unavailable');
     // xArray[$(this.attr('id')] = $(this).attr('id');
     // xArray.push($(this).attr('id').charAt(6).parseInt());
     let integer = $(this).attr('id').charAt(6);
@@ -66,6 +68,7 @@ $('.square').on('click', function(){
     numTurn++;
   }else{
     $(this).text('O');
+    $(this).addClass('unavailable');
     // let id = $(this).attr('id');
     let integer = $(this).attr('id').charAt(6);
     let toNum = parseInt(integer);
@@ -80,7 +83,6 @@ $('.square').on('click', function(){
 module.exports = {
   announceWinner,
   winCases,
-  // defined,
   playerOwins,
   playerXwins,
   xArray,

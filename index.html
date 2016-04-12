@@ -48,19 +48,19 @@
   <!-- Register/Sign in -->
         <div class="sign-in center hidden" id="register">
           <!--register -->
-          <form class="center">
+          <form class="center" id="sign-up">
             <p>first time?</p>
-            <input type="email" name="email" placeholder="email">
-            <input type="password" name="password" placeholder="password">
-            <input type="password" name="confirm-password" placeholder="confirm password">
-            <input type="click" name="submit" value="be easy" class="dark">
+            <input type="credentials[email]" name="email" placeholder="email">
+            <input type="credentials[password]" name="password" placeholder="password">
+            <input type="credentials[password_confirmation]" name="confirm-password" placeholder="confirm password">
+            <input type="submit" name="submit" value="be easy" class="dark">
           </form>
           <!--log in -->
-          <form class="center">
+          <form class="center" id="sign-in">
             <p>been here before?</p>
-            <input type="email" name="email" placeholder="email">
-            <input type="password" name="password" placeholder="password">
-            <input type="click" name="submit" value="welcome home" class="dark" id="begin">
+            <input type="email" name="credentials[email]" placeholder="email">
+            <input type="password" name="credentials[password]" placeholder="password">
+            <input type="submit" name="submit" value="welcome home" class="dark" id="begin">
           </form>
         </div>
 <!-- End 'sign-in' -->
@@ -74,8 +74,8 @@
           </form>
           <form class="center" id="change-pw">
             <p>change password</p>
-            <input type="password" name="password" placeholder="old password">
-            <input type="password" name="password" placeholder="new password">
+            <input type="password" name="passwords[old]" placeholder="old password">
+            <input type="password" name="passwords[new]" placeholder="new password">
             <input type="click" name="submit" value="we all need change">
           </form>
           <div id="pw-change-success" class="hidden center">
@@ -85,8 +85,8 @@
 <!-- Player Two -->
         <div class="hidden center" id="player-two">
           <form class="center">
-            <input type="email" name="email" placeholder="email">
-            <input type="password" name="password" placeholder="password">
+            <input type="email" name="credentials[email]" placeholder="email">
+            <input type="password" name="credentials[password]" placeholder="password">
             <input type="click" name="submit" value="welcome home" class="dark" id="begin">
           </form>
         </div>
