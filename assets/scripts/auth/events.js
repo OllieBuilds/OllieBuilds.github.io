@@ -13,16 +13,17 @@ const addHandlers = () => {
   $('#sign-up').on('submit', function (event) {
     event.preventDefault();
     let data = getFormFields(this);
+    console.log(data);
     authApi.signUp(authUi.success, authUi.failure, data);
   });
-  
+
   $('#sign-in').on('submit', function (event){
     event.preventDefault();
   // two users
     let data = getFormFields(this);
     // playerOne = app.user;
+    console.log(this);
     authApi.signIn(authUi.signInSuccess, authUi.failure, data);
-    console.log(data);
   });
 
   $('#sign-in-two').on('submit', function (event){

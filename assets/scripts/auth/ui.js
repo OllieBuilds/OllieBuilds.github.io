@@ -3,7 +3,8 @@
 const app = require('../app-data.js');
 const users = require('../users');
 const gameplay = require('../gameplay');
-
+let user1;
+let user2;
 
 const success = (data) => {
   console.log(data);
@@ -27,7 +28,7 @@ const failure = (error) => {
 
 
 const signInSuccess = (data) => {
-    app.user1 = data.user;
+    users.player1 = data.user;
     users.player1.authToken = data.user.token;
     console.log('user 1' + app.user1);
     $('.register').addClass('hidden');
@@ -85,4 +86,6 @@ module.exports = {
   newGameSuccess,
   JoinSuccess,
   getSuccess,
+  user1,
+  user2,
 };

@@ -7,10 +7,11 @@ $('#trip').on('click', function() {
   $('#register').removeClass('hidden');
 });
 
-$('#begin').on('click', function() {
-  $('#register').addClass('hidden');
-  $('#choose').removeClass('hidden');
-});
+// $('#sign-in').on('submit', function() {
+// if()
+//   $('#register').addClass('hidden');
+//   $('#choose').removeClass('hidden');
+// });
 
 $('#change-pw').on('click', function() {
   $('#pw-change-success').removeClass('hidden');

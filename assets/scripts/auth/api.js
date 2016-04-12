@@ -2,18 +2,27 @@
 
 const app = require('../app-data');
 const gameplay = require('../gameplay');
+const events = require ('./events');
+const ui = require('./ui');
+
+// const signUp = (success, failure, data) => {
+//   $.ajax({
+//     method: 'POST',
+//     url: app.api + 'sign-up',
+//     headers: {
+//       Authorization: 'Token token=' + app.user1.token,
+//     },
+//     data: data,
+//   }).done(success)
+//   .fail(failure);
+// };
 
 const signUp = (success, failure, data) => {
-// Math.random() > 0.5 ? success('in signUp') : failure(data);
-  console.log(app.user1);
-  debugger;
   $.ajax({
-    method: 'POST',
-    url: app.api + 'sign-up',
+    method: "POST",
+    url: app.api + "sign-up",
+    dataProcessing: false,
     data,
-    headers: {
-      Authorization: 'Token token=' + app.user1.token,
-    },
   }).done(success)
   .fail(failure);
 };
@@ -23,9 +32,9 @@ const signIn = (success, failure, data) => {
     method: 'POST',
     url: app.api + 'sign-in',
     data,
-    headers: {
-      Authorization: 'Token token=' + app.user1.token,
-    },
+    // headers: {
+    //   Authorization: 'Token token=' + app.user1.token,
+    // },
   }).done(success)
   .fail(failure);
 };
