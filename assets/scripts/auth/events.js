@@ -42,16 +42,16 @@ const addHandlers = () => {
     authApi.signOut(authUi.signOutSuccess, authUi.failure);
   });
   // Game functions
-  $('#begin').on('click', function(event) {
+  $('#new-game').on('submit', function(event) {
     $('#register').addClass('hidden');
     $('#choose').removeClass('hidden');
     event.preventDefault();
     authApi.newGame(authUi.newGameSuccess, authUi.failure);
     $('#winnerPop').addClass('hidden');
     $('td').removeClass('playerone').removeClass('playertwo').text(null);
-    for(let i = 0; i < gameplay.gameArray.length; i++) {
-      gameplay.gameArray[i] = null;
-    }
+    // for(let i = 0; i < gameplay.gameArray.length; i++) {
+    //   gameplay.gameArray[i] = null;
+    // }
   });
 
   $('#join-game').on('submit', function(event){
