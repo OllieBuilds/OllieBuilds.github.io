@@ -32,9 +32,6 @@ const signIn = (success, failure, data) => {
     method: 'POST',
     url: app.api + 'sign-in',
     data,
-    // headers: {
-    //   Authorization: 'Token token=' + app.user1.token,
-    // },
   }).done(success)
   .fail(failure);
 };
@@ -44,6 +41,9 @@ const changePassword = (success, failure, data) => {
     method: 'PATCH',
     url: app.api + 'change-password/' + app.user1.id,
     data,
+    headers :{
+      Authorization: "Token token=" +app.user1.authToken,
+    },
   }).done(success)
   .fail(failure);
 };

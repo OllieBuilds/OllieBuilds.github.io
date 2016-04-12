@@ -13,9 +13,9 @@ $('#trip').on('click', function() {
 //   $('#choose').removeClass('hidden');
 // });
 
-$('#change-pw').on('click', function() {
-  $('#pw-change-success').removeClass('hidden');
-});
+// $('#change-pw').on('submit', function() {
+//   $('#pw-change-success').removeClass('hidden');
+// });
 
 $('#new-game').on('click', function() {
   $('#choose').addClass('hidden');

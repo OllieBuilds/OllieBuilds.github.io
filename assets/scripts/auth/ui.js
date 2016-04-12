@@ -1,10 +1,8 @@
 'use strict';
 
 const app = require('../app-data.js');
-const users = require('../users');
+// const users = require('../users');
 const gameplay = require('../gameplay');
-let user1;
-let user2;
 
 const success = (data) => {
   console.log(data);
@@ -20,6 +18,7 @@ const JoinSuccess = (data) => {
 
 const pwSuccess = () => {
   console.log('Password has been changed');
+  $('#pw-change-success').removeClass('hidden');
 };
 
 const failure = (error) => {
@@ -28,17 +27,17 @@ const failure = (error) => {
 
 
 const signInSuccess = (data) => {
-    users.player1 = data.user;
-    users.player1.authToken = data.user.token;
+    app.user1 = data.user;
+    app.user1.authToken = data.user.token;
     console.log('user 1' + app.user1);
-    $('.register').addClass('hidden');
-    $('#new-game').removeClass('hidden');
+    $('#register').addClass('hidden');
+    $('#choose').removeClass('hidden');
   };
 
 
 const signInSuccessTwo = (data) => {
     app.user2 = data.user;
-    users.player2.authToken = data.user.token;
+    app.user2.authToken = data.user.token;
     console.log( app.user2);
     $('#sign-in-two').addClass('hidden');
     $('#join-game').removeClass('hidden');
@@ -86,6 +85,4 @@ module.exports = {
   newGameSuccess,
   JoinSuccess,
   getSuccess,
-  user1,
-  user2,
 };

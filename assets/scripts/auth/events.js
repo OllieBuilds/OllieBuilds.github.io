@@ -49,7 +49,7 @@ const addHandlers = () => {
     authApi.newGame(authUi.newGameSuccess, authUi.failure);
     $('#winnerPop').addClass('hidden');
     $('td').removeClass('playerone').removeClass('playertwo').text(null);
-    for(let i = 0; i <= gameplay.gameArray.length; i++) {
+    for(let i = 0; i < gameplay.gameArray.length; i++) {
       gameplay.gameArray[i] = null;
     }
   });
@@ -59,9 +59,9 @@ const addHandlers = () => {
     authApi.joinGame(authUi.JoinSuccess, authUi.failure);
   });
 
-  $('#change-password').on('submit', function(event){
+  $('#change-pw').on('submit', function(event){
     event.preventDefault();
-    authApi.updateGame(authUi.success, authUi.failure);
+    // authApi.updateGame(authUi.success, authUi.failure);
     let data = getFormFields(this);
     authApi.changePassword(authUi.pwSuccess, authUi.failure, data);
   });
