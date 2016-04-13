@@ -1,12 +1,15 @@
 'use strict';
 
-// const app = require('./auth/events');
-// const api = require('./auth/api');
-// const ui = require('./auth/ui');
+// const authApi = require('./auth/api');
+// // const api = require('./auth/api');
+// const authUi = require('./auth/ui');
 //
 let gameId;
 let xArray = [];
 let oArray = [];
+let gameArray = [];
+let patchVal;
+let patchIndex;
 
 // win counters
   let playerXwins = 0;
@@ -52,17 +55,17 @@ const winCases = function(array) {
 
 
 // Player move function
-$('.square').on('click', function(){
+$('.square').on('click', function(event){
   console.log($(this));
+  event.preventDefault();
   if(numTurn % 2 === 0){
     $(this).text('X');
     $(this).addClass('unavailable');
-    // xArray[$(this.attr('id')] = $(this).attr('id');
-    // xArray.push($(this).attr('id').charAt(6).parseInt());
     let integer = $(this).attr('id').charAt(6);
     let toNum = parseInt(integer);
     xArray.push(toNum);
-    // toMath(xArray);
+    patchVal = 'X';
+    patchIndex = toNum;
     console.log(xArray);
     winCases(xArray);
     numTurn++;
@@ -73,7 +76,8 @@ $('.square').on('click', function(){
     let integer = $(this).attr('id').charAt(6);
     let toNum = parseInt(integer);
     oArray.push(toNum);
-    // toMath(oArray);
+    patchVal = 'O';
+    patchIndex = toNum;
     console.log(oArray);
     winCases(oArray);
     numTurn++;
@@ -88,4 +92,7 @@ module.exports = {
   xArray,
   oArray,
   gameId,
+  gameArray,
+  patchVal,
+  patchIndex,
 };

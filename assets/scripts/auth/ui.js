@@ -14,10 +14,6 @@ const pwSuccess = () => {
   $('#pw-change-success').removeClass('hidden');
 };
 
-// const playerTwoSuccess = () => {
-//   console.log('Player Two has logged-in');
-//   $('#new-game').removeClass('unavailable');
-// };
 let gameId;
 
 const failure = (error) => {
@@ -66,7 +62,7 @@ const newGameSuccess = (data) => {
 };
 
 const getSuccess = (data) => {
-  console.log('get succ');
+  console.log('get success');
   console.log(data);
 };
 

@@ -42,7 +42,7 @@ const changePassword = (success, failure, data) => {
     url: app.api + 'change-password/' + app.user1.id,
     data,
     headers :{
-      Authorization: "Token token=" +app.user1.authToken,
+      Authorization: "Token token=" + app.user1.authToken,
     },
   }).done(success)
   .fail(failure);
@@ -107,19 +107,19 @@ const joinGame = (success, failure) => {
   console.log('Game updated');
 };
 
-const updateGame = (success, failure, ugIndex, ugValue) => {
+const updateGame = (success, failure) => {
   console.log('updateGame called');
   $.ajax({
     method: 'PATCH',
-    url: app.api + 'games/' + gameplay.gameId,
+    url: app.api + 'games/' + app.gameId,
     headers:{
       Authorization: "Token token=" + app.user1.token,
     },
     data: {
         "game": {
           "cell": {
-            "index": ugIndex,
-            "value": ugValue,
+            "index": gameplay.patchIndex,
+            "value": gameplay.patchVal,
           },
           "over": false
         },
@@ -132,7 +132,7 @@ const updateGame = (success, failure, ugIndex, ugValue) => {
 const getId = (success, failure) => {
   $.ajax({
     method: 'GET',
-    url:  app.api + 'games/' +  gameplay.gameId,
+    url:  app.api + 'games/' +  app.gameId,
     headers: {
       Authorization: "Token token=" + app.user1.token,
     },

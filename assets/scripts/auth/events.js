@@ -62,17 +62,28 @@ const addHandlers = () => {
     authApi.changePassword(authUi.pwSuccess, authUi.failure, data);
   });
 
-  $('#getId').on('submit', function(event){
-    console.log('getId');
+  $('.square').on('click', function(event){
     event.preventDefault();
+    // console.log(data);
     authApi.getId(authUi.getSuccess, authUi.failure);
   });
+  // $('#getId').on('submit', function(event){
+  //   console.log('getId');
+  //   event.preventDefault();
+  //   authApi.getId(authUi.getSuccess, authUi.failure);
+  // });
 
 $('#sign-out').on('click', function(event){
   console.log('sign out clicked');
   event.preventDefault();
   authApi.signOut(authUi.signOutSuccess, authUi.failure);
 });
+
+$('#get').on('click', function(event){
+  event.preventDefault();
+  authApi.getId(authUi.getSuccess, authUi.failure);
+});
+
 
 };
 
