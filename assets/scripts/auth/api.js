@@ -93,14 +93,14 @@ const newGame = (success, failure) => {
   console.log('no issues on newGame ajax request');
 };
 
-const joinGame = (success, failure, data) => {
+const joinGame = (success, failure) => {
   console.log('update game call');
-  console.log(data);
   $.ajax({
     method: 'PATCH',
-    url: app.api + 'games/' + gameplay.gameId,
+    // data: '',
+    url: app.api + 'games/' + app.gameId,
     headers:{
-      Authorization: "Token token=" + app.user2.token,
+      Authorization: "Token token=" + app.user2.authToken,
     },
   }).done(success)
   .fail(failure);

@@ -23,6 +23,7 @@ $('#new-game').on('click', function() {
   $('#nav').removeClass('hidden');
   $('#game-board').removeClass('hidden');
   $('.square').removeClass('unavailable');
+  $('#player-two').removeClass('hidden');
 });
 
 $('#li-new-game').on('click', function() {

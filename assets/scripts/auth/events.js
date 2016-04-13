@@ -26,15 +26,19 @@ const addHandlers = () => {
     authApi.signIn(authUi.signInSuccess, authUi.failure, data);
   });
 
-  $('#sign-in-two').on('submit', function (event){
+  $('#player-two').on('submit', function (event){
     event.preventDefault();
   // two users
     let data = getFormFields(this);
     // playerOne = app.user;
-    authApi.signInTwo(authUi.signInSuccessTwo, authUi.failure, data);
-// update game with player O data
-    // authApi.updateGame(authUi.success, authUi.failure, data);
-    console.log(data);
+    authApi.signInTwo(authUi.signInTwoSuccess, authUi.failure, data);
+    console.log('signed in');
+    // authApi.joinGame(authUi.JoinSuccess, authUi.failure);
+  });
+
+  $('#join').on('submit', function (event) {
+    event.preventDefault();
+    authApi.joinGame(authUi.JoinSuccess, authUi.failure);
   });
 
   $('#sign-out').on('submit', function(event) {
@@ -45,19 +49,19 @@ const addHandlers = () => {
   $('#new-game').on('submit', function(event) {
     $('#register').addClass('hidden');
     $('#choose').removeClass('hidden');
+    // $('#player-two').removeClass('hidden');
     event.preventDefault();
     authApi.newGame(authUi.newGameSuccess, authUi.failure);
-    $('#winnerPop').addClass('hidden');
     $('td').removeClass('playerone').removeClass('playertwo').text(null);
     // for(let i = 0; i < gameplay.gameArray.length; i++) {
     //   gameplay.gameArray[i] = null;
     // }
   });
 
-  $('#join-game').on('submit', function(event){
-    event.preventDefault();
-    authApi.joinGame(authUi.JoinSuccess, authUi.failure);
-  });
+  // $('#player-two').on('submit', function(event){
+  //   event.preventDefault();
+  //   authApi.joinGame(authUi.JoinSuccess, authUi.failure);
+  // });
 
   $('#change-pw').on('submit', function(event){
     event.preventDefault();

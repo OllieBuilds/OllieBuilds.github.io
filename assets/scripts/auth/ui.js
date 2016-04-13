@@ -9,17 +9,16 @@ const success = (data) => {
   console.log('success');
 };
 
-const JoinSuccess = (data) => {
-  console.log(data);
-  console.log('success');
-  $('#join-game').addClass('hidden');
-  $('#new-game').removeClass('hidden');
-};
-
 const pwSuccess = () => {
   console.log('Password has been changed');
   $('#pw-change-success').removeClass('hidden');
 };
+
+// const playerTwoSuccess = () => {
+//   console.log('Player Two has logged-in');
+//   $('#new-game').removeClass('unavailable');
+// };
+let gameId;
 
 const failure = (error) => {
   console.error(error);
@@ -35,12 +34,13 @@ const signInSuccess = (data) => {
   };
 
 
-const signInSuccessTwo = (data) => {
+const signInTwoSuccess = (data) => {
     app.user2 = data.user;
     app.user2.authToken = data.user.token;
-    console.log( app.user2);
+    console.log( "2 in success");
     $('#sign-in-two').addClass('hidden');
     $('#join-game').removeClass('hidden');
+    console.log(data);
 };
 
 const signOutSuccess = () => {
@@ -57,12 +57,12 @@ const checkUser = function checkUser () {
 };
 
 const newGameSuccess = (data) => {
-  console.log(data);
-  gameplay.gameId = data.game.id;
-  console.log(gameplay.gameId);
+  console.log("New game success!");
   $('#new-game').addClass('hidden');
   $('#sign-in-two').removeClass('hidden');
   gameplay.gameArray = gameplay.newGameArray;
+  app.gameId = data.game.id;
+  console.log(app.gameId + "new game log");
 };
 
 const getSuccess = (data) => {
@@ -70,6 +70,16 @@ const getSuccess = (data) => {
   console.log(data);
 };
 
+const JoinSuccess = (data) => {
+  console.log(data);
+  console.log('join success');
+  // gameId = data.game.id;
+  // let user2 = data.user;
+  // user2.authToken = data.user.token;
+  // console.log( app.user2);
+  $('#join-game').addClass('hidden');
+  $('#new-game').removeClass('unavailable');
+};
 
 
 checkUser();
@@ -79,10 +89,11 @@ module.exports = {
   success,
   pwSuccess,
   signInSuccess,
-  signInSuccessTwo,
   signOutSuccess,
   checkUser,
   newGameSuccess,
   JoinSuccess,
   getSuccess,
+  signInTwoSuccess,
+  gameId,
 };

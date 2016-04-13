@@ -4,7 +4,7 @@
 // const api = require('./auth/api');
 // const ui = require('./auth/ui');
 //
-
+let gameId;
 let xArray = [];
 let oArray = [];
 
@@ -87,5 +87,5 @@ module.exports = {
   playerXwins,
   xArray,
   oArray,
-
+  gameId,
 };
