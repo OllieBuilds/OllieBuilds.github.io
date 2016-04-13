@@ -46,7 +46,6 @@ const signInTwo = (success, failure, data) => {
 };
 
 const signOut = (success, failure) => {
-// if (!app.user) === bad;
   console.log(app);
   $.ajax({
     method: 'DELETE',
@@ -66,6 +65,7 @@ const signOut = (success, failure) => {
     },
   }).done(success)
   .fail(failure);
+  
 };
 
 const newGame = (success, failure) => {
@@ -126,6 +126,7 @@ const getId = (success, failure) => {
   }).done(success)
   .fail(failure);
   console.log(app.gameId);
+  $('#display-game-id').text(app.gameId);
 };
 
 module.exports = {

@@ -47,12 +47,21 @@ const addHandlers = () => {
   });
   // Game functions
   $('#new-game').on('submit', function(event) {
+    event.preventDefault();
     $('#register').addClass('hidden');
     $('#choose').removeClass('hidden');
-    // $('#player-two').removeClass('hidden');
-    event.preventDefault();
     authApi.newGame(authUi.newGameSuccess, authUi.failure);
     $('td').removeClass('playerone').removeClass('playertwo').text(null);
+  });
+
+  $('#li-new-game').on('submit', function(event) {
+    event.preventDefault();
+    $('#register').addClass('hidden');
+    $('#choose').removeClass('hidden');
+    authApi.newGame(authUi.newGameSuccess, authUi.failure);
+    $('td').removeClass('playerone').removeClass('playertwo').text(null);
+    $('#display-win').text('...');
+    $('#display-game-id').text('...');
   });
 
   $('#change-pw').on('submit', function(event){

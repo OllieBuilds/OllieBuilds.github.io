@@ -23,10 +23,12 @@ const announceWinner = function (){
   if(numTurn % 2 === 0){
     playerXwins++;
     $('.square').addClass('unavailable');
+    $('#display-win').text('Player X wins');
     return playerXwins;
   }else {
     playerOwins++;
     $('.square').addClass('unavailable');
+    $('#display-win').text('Player O wins');
     return playerOwins++;
   }
 };

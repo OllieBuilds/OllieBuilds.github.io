@@ -129,13 +129,13 @@ body {
 }
 
 .base {
-  position: absolute;
   float: left;
+  position: absolute;
 }
 
 .winner {
-  size: 100px;
   color: $blue;
   position: absolute;
+  size: 100px;
   top: 0;
 }
