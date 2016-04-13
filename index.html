@@ -29,7 +29,6 @@
       <div class="nav hidden center" id="nav">
         <ul>
           <li id="li-new-game">new game</li>
-          <li id="player-two">player two</li>
           <li id="get">game count</li>
         </ul>
       </div>
@@ -48,19 +47,19 @@
   <!-- Register/Sign in -->
         <div class="sign-in center hidden" id="register">
           <!--register -->
-          <form class="center">
+          <form class="center" id="sign-up">
             <p>first time?</p>
-            <input type="email" name="email" placeholder="email">
-            <input type="password" name="password" placeholder="password">
-            <input type="password" name="confirm-password" placeholder="confirm password">
-            <input type="click" name="submit" value="be easy" class="dark">
+            <input name="credentials[email]" type="text" placeholder="email">
+            <input name="credentials[password]" type="password" placeholder="password">
+            <input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+            <input type="submit" name="submit" value="submit" class="dark">
           </form>
           <!--log in -->
-          <form class="center">
+          <form class="center" id="sign-in">
             <p>been here before?</p>
-            <input type="email" name="email" placeholder="email">
-            <input type="password" name="password" placeholder="password">
-            <input type="click" name="submit" value="welcome home" class="dark" id="begin">
+            <input type="email" name="credentials[email]" placeholder="email">
+            <input type="password" name="credentials[password]" placeholder="password">
+            <input type="submit" name="submit" value="welcome home" class="dark">
           </form>
         </div>
 <!-- End 'sign-in' -->
@@ -70,29 +69,30 @@
           </span>
           <form class="center" id="new-game">
             <p>new game</p>
-            <input type="click" name="submit" value="new game">
+            <input type="submit" name="submit" value="new game">
           </form>
           <form class="center" id="change-pw">
             <p>change password</p>
-            <input type="password" name="password" placeholder="old password">
-            <input type="password" name="password" placeholder="new password">
-            <input type="click" name="submit" value="we all need change">
+            <input type="password" name="passwords[old]" placeholder="old password">
+            <input type="password" name="passwords[new]" placeholder="new password">
+            <input type="submit" name="submit" value="we all need change">
           </form>
           <div id="pw-change-success" class="hidden center">
             <h1>does it feel different?</h1>
           </div>
         </div>
-<!-- Player Two -->
-        <div class="hidden center" id="player-two">
-          <form class="center">
-            <input type="email" name="email" placeholder="email">
-            <input type="password" name="password" placeholder="password">
-            <input type="click" name="submit" value="welcome home" class="dark" id="begin">
-          </form>
-        </div>
       </div>
 <!-- end overlay DIV -->
-
+  <div class="base center">
+      <form class="center" id="player-two">
+        <input type="email" name="credentials[email]" placeholder="email">
+        <input type="password" name="credentials[password]" placeholder="password">
+        <input type="submit" name="submit" value="challenger" class="dark">
+      </form>
+      <form id="join">
+        <input type="submit" value="join game">
+      </form>
+  </div>
     </div>
     <footer>
       <h3>background courtesy of anonymous @ wallpaper vortex</h3>

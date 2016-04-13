@@ -4,7 +4,7 @@
 // const api = require('./auth/api');
 // const ui = require('./auth/ui');
 //
-
+let gameId;
 let xArray = [];
 let oArray = [];
 
@@ -21,9 +21,11 @@ const announceWinner = function (){
   console.log("announce wins!");
   if(numTurn % 2 === 0){
     playerXwins++;
+    $('.square').addClass('unavailable');
     return playerXwins;
   }else {
     playerOwins++;
+    $('.square').addClass('unavailable');
     return playerOwins++;
   }
 };
@@ -40,9 +42,9 @@ const announceWinner = function (){
 const winCases = function(array) {
   let mathWinner = 1;
   for(let i = 0; i <array.length; i++){
-    mathWinner *= array[i]+1;
+    mathWinner *= array[i]+5;
   console.log(mathWinner);
-  if(mathWinner === 6 || mathWinner === 28 || mathWinner === 45 || mathWinner === 80 || mathWinner === 162 || mathWinner === 105 || mathWinner === 120 || mathWinner === 504){
+  if(mathWinner === 210 || mathWinner === 440 || mathWinner === 585 || mathWinner === 648 || mathWinner === 910 || mathWinner === 693 || mathWinner === 720 || mathWinner === 1716){
     announceWinner();
   }
 }
@@ -51,8 +53,10 @@ const winCases = function(array) {
 
 // Player move function
 $('.square').on('click', function(){
+  console.log($(this));
   if(numTurn % 2 === 0){
     $(this).text('X');
+    $(this).addClass('unavailable');
     // xArray[$(this.attr('id')] = $(this).attr('id');
     // xArray.push($(this).attr('id').charAt(6).parseInt());
     let integer = $(this).attr('id').charAt(6);
@@ -64,6 +68,7 @@ $('.square').on('click', function(){
     numTurn++;
   }else{
     $(this).text('O');
+    $(this).addClass('unavailable');
     // let id = $(this).attr('id');
     let integer = $(this).attr('id').charAt(6);
     let toNum = parseInt(integer);
@@ -78,8 +83,9 @@ $('.square').on('click', function(){
 module.exports = {
   announceWinner,
   winCases,
-  // defined,
   playerOwins,
-  playerXwins
-
+  playerXwins,
+  xArray,
+  oArray,
+  gameId,
 };
