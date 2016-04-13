@@ -1,10 +1,10 @@
 'use strict';
 
 const getFormFields = require('../../../lib/get-form-fields');
-
+// const game = require('../gameplay');
 const authApi = require('./api');
 const authUi = require('./ui');
-const gameplay = require('../gameplay');
+// const gameplay = require('../gameplay');
 
 // let playerOne;
 // let playerTwo;
@@ -47,21 +47,22 @@ const addHandlers = () => {
   });
   // Game functions
   $('#new-game').on('submit', function(event) {
+    event.preventDefault();
     $('#register').addClass('hidden');
     $('#choose').removeClass('hidden');
-    // $('#player-two').removeClass('hidden');
-    event.preventDefault();
     authApi.newGame(authUi.newGameSuccess, authUi.failure);
     $('td').removeClass('playerone').removeClass('playertwo').text(null);
-    // for(let i = 0; i < gameplay.gameArray.length; i++) {
-    //   gameplay.gameArray[i] = null;
-    // }
   });
 
-  // $('#player-two').on('submit', function(event){
-  //   event.preventDefault();
-  //   authApi.joinGame(authUi.JoinSuccess, authUi.failure);
-  // });
+  $('#li-new-game').on('submit', function(event) {
+    event.preventDefault();
+    $('#register').addClass('hidden');
+    $('#choose').removeClass('hidden');
+    authApi.newGame(authUi.newGameSuccess, authUi.failure);
+    $('td').removeClass('playerone').removeClass('playertwo').text(null);
+    $('#display-win').text('...');
+    $('#display-game-id').text('...');
+  });
 
   $('#change-pw').on('submit', function(event){
     event.preventDefault();
@@ -70,8 +71,18 @@ const addHandlers = () => {
     authApi.changePassword(authUi.pwSuccess, authUi.failure, data);
   });
 
-  $('#getId').on('submit', function(event){
-    console.log('getId');
+  $('#get-game').on('click', function(event){
+    event.preventDefault();
+    authApi.getId(authUi.getSuccess, authUi.failure);
+  });
+
+  $('#sign-out').on('click', function(event){
+    console.log('sign out clicked');
+    event.preventDefault();
+    authApi.signOut(authUi.signOutSuccess, authUi.failure);
+  });
+
+  $('#get').on('click', function(event){
     event.preventDefault();
     authApi.getId(authUi.getSuccess, authUi.failure);
   });

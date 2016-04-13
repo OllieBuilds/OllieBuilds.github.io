@@ -14,10 +14,6 @@ const pwSuccess = () => {
   $('#pw-change-success').removeClass('hidden');
 };
 
-// const playerTwoSuccess = () => {
-//   console.log('Player Two has logged-in');
-//   $('#new-game').removeClass('unavailable');
-// };
 let gameId;
 
 const failure = (error) => {
@@ -66,18 +62,18 @@ const newGameSuccess = (data) => {
 };
 
 const getSuccess = (data) => {
-  console.log('get succ');
+  console.log('get success');
   console.log(data);
 };
 
-const JoinSuccess = (data) => {
+const joinSuccess = (data) => {
   console.log(data);
   console.log('join success');
   // gameId = data.game.id;
   // let user2 = data.user;
   // user2.authToken = data.user.token;
   // console.log( app.user2);
-  $('#join-game').addClass('hidden');
+  // $('#join-game').addClass('hidden');
   $('#new-game').removeClass('unavailable');
 };
 
@@ -92,7 +88,7 @@ module.exports = {
   signOutSuccess,
   checkUser,
   newGameSuccess,
-  JoinSuccess,
+  joinSuccess,
   getSuccess,
   signInTwoSuccess,
   gameId,
