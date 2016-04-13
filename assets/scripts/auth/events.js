@@ -53,15 +53,7 @@ const addHandlers = () => {
     event.preventDefault();
     authApi.newGame(authUi.newGameSuccess, authUi.failure);
     $('td').removeClass('playerone').removeClass('playertwo').text(null);
-    // for(let i = 0; i < gameplay.gameArray.length; i++) {
-    //   gameplay.gameArray[i] = null;
-    // }
   });
-
-  // $('#player-two').on('submit', function(event){
-  //   event.preventDefault();
-  //   authApi.joinGame(authUi.JoinSuccess, authUi.failure);
-  // });
 
   $('#change-pw').on('submit', function(event){
     event.preventDefault();
@@ -75,6 +67,12 @@ const addHandlers = () => {
     event.preventDefault();
     authApi.getId(authUi.getSuccess, authUi.failure);
   });
+
+$('#sign-out').on('click', function(event){
+  console.log('sign out clicked');
+  event.preventDefault();
+  authApi.signOut(authUi.signOutSuccess, authUi.failure);
+});
 
 };
 
