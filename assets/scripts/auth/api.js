@@ -94,7 +94,7 @@ const joinGame = (success, failure) => {
   .fail(failure);
 };
 
-const updateGame = (success, failure, index, value) => {
+const updateGame = (success, failure, index, value, gameover) => {
   console.log('updateGame called');
   let data = {
     "game": {
@@ -102,7 +102,7 @@ const updateGame = (success, failure, index, value) => {
         "index": index,
         "value": value,
       },
-      "over": false
+      "over": gameover
     }
   };
   $.ajax({
@@ -111,7 +111,7 @@ const updateGame = (success, failure, index, value) => {
     headers:{
       Authorization: "Token token=" + app.user1.token,
     },
-    data,
+    data: data,
   }).done(success)
   .fail(failure);
 };

@@ -1,7 +1,8 @@
 'use strict';
 
 // const app = require('./app-data');
-// const api = require('./auth/api');
+const authApi = require('./auth/api');
+const authUi = require('./auth/ui');
 // const ui = require('./auth/ui');
 //
 let gameId;
@@ -9,7 +10,7 @@ let xArray = [];
 let oArray = [];
 let index;
 let value;
-
+let gameOver = false;
 // win counters
   let playerXwins = 0;
   let playerOwins = 0;
@@ -38,6 +39,7 @@ const winCases = function(array) {
   console.log(mathWinner);
   if(mathWinner === 210 || mathWinner === 440 || mathWinner === 585 || mathWinner === 648 || mathWinner === 910 || mathWinner === 693 || mathWinner === 720 || mathWinner === 1716){
     announceWinner();
+    gameOver = true;
   }
 }
 };
@@ -71,6 +73,8 @@ $('.square').on('click', function(event){
     winCases(oArray);
     numTurn++;
   }
+  console.log(index + "  " + value);
+  authApi.updateGame(authUi.success, authUi.failure, index, value, gameOver);
 });
 
 module.exports = {
@@ -83,4 +87,5 @@ module.exports = {
   gameId,
   index,
   value,
+  gameOver,
 };
