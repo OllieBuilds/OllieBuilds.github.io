@@ -1,25 +1,20 @@
 'use strict';
 
-// const authApi = require('./auth/api');
-// // const api = require('./auth/api');
-// const authUi = require('./auth/ui');
+// const app = require('./app-data');
+// const api = require('./auth/api');
+// const ui = require('./auth/ui');
 //
 let gameId;
 let xArray = [];
 let oArray = [];
-let gameArray = [];
-let patchVal;
-let patchIndex;
 
 // win counters
   let playerXwins = 0;
   let playerOwins = 0;
   let numTurn = 0;
-  // let mathWinner = 1;
 
 
 // announceWinner
-
 const announceWinner = function (){
   console.log("announce wins!");
   if(numTurn % 2 === 0){
@@ -34,14 +29,6 @@ const announceWinner = function (){
 };
 
 // Game Logic
-// const toMath = function(array) {
-//   let mathWinner = 1;
-//   for(let i = 0; i <array.length; i++){
-//     mathWinner *= array[i];
-//   }
-//   return mathWinner;
-// };
-
 const winCases = function(array) {
   let mathWinner = 1;
   for(let i = 0; i <array.length; i++){
@@ -64,8 +51,6 @@ $('.square').on('click', function(event){
     let integer = $(this).attr('id').charAt(6);
     let toNum = parseInt(integer);
     xArray.push(toNum);
-    patchVal = 'X';
-    patchIndex = toNum;
     console.log(xArray);
     winCases(xArray);
     numTurn++;
@@ -76,8 +61,6 @@ $('.square').on('click', function(event){
     let integer = $(this).attr('id').charAt(6);
     let toNum = parseInt(integer);
     oArray.push(toNum);
-    patchVal = 'O';
-    patchIndex = toNum;
     console.log(oArray);
     winCases(oArray);
     numTurn++;
@@ -92,7 +75,4 @@ module.exports = {
   xArray,
   oArray,
   gameId,
-  gameArray,
-  patchVal,
-  patchIndex,
 };

@@ -66,7 +66,7 @@ const getSuccess = (data) => {
   console.log(data);
 };
 
-const JoinSuccess = (data) => {
+const joinSuccess = (data) => {
   console.log(data);
   console.log('join success');
   // gameId = data.game.id;
@@ -88,7 +88,7 @@ module.exports = {
   signOutSuccess,
   checkUser,
   newGameSuccess,
-  JoinSuccess,
+  joinSuccess,
   getSuccess,
   signInTwoSuccess,
   gameId,

@@ -1,21 +1,9 @@
 'use strict';
 
 const app = require('../app-data');
-const gameplay = require('../gameplay');
-const events = require ('./events');
-const ui = require('./ui');
-
-// const signUp = (success, failure, data) => {
-//   $.ajax({
-//     method: 'POST',
-//     url: app.api + 'sign-up',
-//     headers: {
-//       Authorization: 'Token token=' + app.user1.token,
-//     },
-//     data: data,
-//   }).done(success)
-//   .fail(failure);
-// };
+// const gameplay = require('../gameplay');
+// const events = require ('./events');
+// const ui = require('./ui');
 
 const signUp = (success, failure, data) => {
   $.ajax({
@@ -100,33 +88,32 @@ const joinGame = (success, failure) => {
     // data: '',
     url: app.api + 'games/' + app.gameId,
     headers:{
-      Authorization: "Token token=" + app.user2.authToken,
+      Authorization: "Token token=" + app.user2.token,
     },
   }).done(success)
   .fail(failure);
-  console.log('Game updated');
 };
 
-const updateGame = (success, failure) => {
+const updateGame = (success, failure, index, value) => {
   console.log('updateGame called');
+  let data = {
+    "game": {
+      "cell": {
+        "index": index,
+        "value": value,
+      },
+      "over": false
+    }
+  };
   $.ajax({
     method: 'PATCH',
     url: app.api + 'games/' + app.gameId,
     headers:{
       Authorization: "Token token=" + app.user1.token,
     },
-    data: {
-        "game": {
-          "cell": {
-            "index": gameplay.patchIndex,
-            "value": gameplay.patchVal,
-          },
-          "over": false
-        },
-    }
+    data,
   }).done(success)
   .fail(failure);
-  console.log(gameplay.cells);
 };
 
 const getId = (success, failure) => {
@@ -138,7 +125,7 @@ const getId = (success, failure) => {
     },
   }).done(success)
   .fail(failure);
-  console.log(gameplay.gameId);
+  console.log(app.gameId);
 };
 
 module.exports = {
