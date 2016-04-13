@@ -1,7 +1,7 @@
 'use strict';
 
 const getFormFields = require('../../../lib/get-form-fields');
-// const app = require('../app-data');
+const game = require('../gameplay');
 const authApi = require('./api');
 const authUi = require('./ui');
 // const gameplay = require('../gameplay');
@@ -78,10 +78,10 @@ const addHandlers = () => {
     authApi.getId(authUi.getSuccess, authUi.failure);
   });
 
-  $('.update').on('click', function(event){
+  $('#update').on('click', function(event){
     event.preventDefault();
     console.log('Update class clicked');
-    authApi.updateGame(authUi.joinSuccess, authUi.failure, 1, "Value");
+    authApi.updateGame(authUi.success, authUi.failure, game.index, game.value);
   });
 
 };

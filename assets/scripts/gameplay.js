@@ -7,6 +7,8 @@
 let gameId;
 let xArray = [];
 let oArray = [];
+let index;
+let value;
 
 // win counters
   let playerXwins = 0;
@@ -50,6 +52,8 @@ $('.square').on('click', function(event){
     $(this).addClass('unavailable');
     let integer = $(this).attr('id').charAt(6);
     let toNum = parseInt(integer);
+    index = toNum;
+    value = "X";
     xArray.push(toNum);
     console.log(xArray);
     winCases(xArray);
@@ -60,6 +64,8 @@ $('.square').on('click', function(event){
     // let id = $(this).attr('id');
     let integer = $(this).attr('id').charAt(6);
     let toNum = parseInt(integer);
+    index = toNum;
+    value = "O";
     oArray.push(toNum);
     console.log(oArray);
     winCases(oArray);
@@ -75,4 +81,6 @@ module.exports = {
   xArray,
   oArray,
   gameId,
+  index,
+  value,
 };

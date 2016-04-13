@@ -73,7 +73,7 @@ const joinSuccess = (data) => {
   // let user2 = data.user;
   // user2.authToken = data.user.token;
   // console.log( app.user2);
-  $('#join-game').addClass('hidden');
+  // $('#join-game').addClass('hidden');
   $('#new-game').removeClass('unavailable');
 };
 
