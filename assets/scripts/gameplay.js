@@ -39,7 +39,9 @@ const winCases = function(array) {
   for(let i = 0; i <array.length; i++){
     mathWinner *= array[i]+5;
   console.log(mathWinner);
-  if(mathWinner === 210 || mathWinner === 440 || mathWinner === 585 || mathWinner === 648 || mathWinner === 910 || mathWinner === 693 || mathWinner === 720 || mathWinner === 1716){
+  if(numTurn >= 8 && gameOver === false) {
+    $('#cat').removeClass('hidden');
+  }else if(mathWinner === 210 || mathWinner === 440 || mathWinner === 585 || mathWinner === 648 || mathWinner === 910 || mathWinner === 693 || mathWinner === 720 || mathWinner === 1716){
     announceWinner();
     gameOver = true;
   }

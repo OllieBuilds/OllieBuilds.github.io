@@ -139,3 +139,19 @@ body {
   size: 100px;
   top: 0;
 }
+
+.catsgame {
+  background-color: $white;
+  border: 2px solid $faded-purple;
+  display: block;
+  margin: 100px auto;
+  position: absolute;
+
+  .img {
+    height: 100%;
+    margin: 0 auto;
+    width: auto;
+    z-index: 1;
+  }
+
+}
